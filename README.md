@@ -5,7 +5,6 @@ Vous allez utiliser des outils informatiques qui vous permettront d’analyser d
 Les données associées à cette publication sont publiques et accessibles sur la plateforme [PRIDE](https://www.ebi.ac.uk/pride/archive/projects/PXD011286). Le PDF de la publication est [`data/Nolivos_2019.pdf`](data/Nolivos_2019.pdf).
 
 
-
 ## Mise en place
 
 ### Méthodologie
@@ -132,34 +131,42 @@ df = pandas.read_csv()
 
 Quel est le type de l'objet `df`?
 ```
-
+C'est un dataframe de pandas.
 ```
 
 ##### Descriptions d'une table de données
 Que permettent les méthodes suivantes?
 ###### df.shape
 ```
+accéder aux dimensions du dataframe df
 ```
 ###### df.head()
 ```
+accéder aux 5 premières lignes du df sur toutes les colonnes ou sur les extérmités des colonnes selon la largeur du df
 ```
 ###### df.tail()
 ```
+même chose mais pour la fin du df
 ```
 ###### df.columns
 ```
+c'est la liste des noms des colonnes
 ```
 ###### df.dtypes
 ```
+c'est le type de chaque colonne (str, float)
 ```
 ###### df.info
 ```
+c'est un résumé du df avec head et tail, la taille.
 ```
 ###### df.describe()
 ```
+c'est la même chose mais avec des outputs différents selon le type de chaque colonne
 ```
 ###### df.dropna()
 ```
+Il va enlevr les lignes avec au moins une valeur définie comme NA
 ```
 
 ##### Accès aux éléments d'une table de données
@@ -169,6 +176,9 @@ values = df[['Description', 'Gene Symbol']]
 ```
 
 Quel est le type de `values` ?
+```
+C'est un data frame.
+```
 
 Verifiez si certaines méthodes de `DataFrame` lui sont applicables.
 Ce type supporte l'accès par indice et les slice `[a:b]`
@@ -179,17 +189,17 @@ On peut accéder aux valeurs du DataFrame via des indices ou plages d'indice. La
 Il y a différentes manières de le faire, l'utilisation de `.iloc[slice_ligne,slice_colonne]` constitue une des solutions les plus simples. N'oublions pas que shape permet d'obtenir les dimensions (lignes et colonnes) du DataFrame.
 ###### Acceder aux cinq premières lignes de toutes les colonnes
 ```python
-
+df.iloc[0:5,:]
 ```
 
 ###### Acceder à toutes les lignes de la dernière colonne
 ```python
-
+df.iloc[:,-1:]
 ```
 
 ###### Acceder aux cinq premières lignes des colonnes 0, 2 et 3
 ```python
-
+df.iloc[:,[0, 2, 3]]
 ```
 
 ##### Conversion de type
@@ -234,10 +244,21 @@ df.loc[ df['Gene Symbol'].isin(['fadR', 'arcA'] ) ]
 #### Appliquons ces outils à l'analyse de données protéomique
 
 ##### 1. Chargez le contenu du fichier `data/TCL_wt1.tsv` dans un notebook en eliminant les lignes porteuses de valeurs numériques aberrantes
+Avant nettoyage des valeurs aberrantes, on a cet histogramme.
+![Histogramme à inserez ici](his_log2_avant.png)
+
+On voit que les densités sont très faibles avant -2,5 donc je vais mettre le seuil ici pour enlever les lignes qui ont une valeur inférieure.
+
+
+
 
 ##### 2. Representez par un histogramme les valeurs de `Log2 Corrected Abundance Ratio`
+Après ce nettoyage on a : 
+
+![Histogramme à inserez ici](his_log2_après.png)
 
 <!-- ##### 3. A partir de cette échantillon de ratio d'abondance,  estimez la moyenne <img src="https://render.githubusercontent.com/render/math?math=\mu"> et l'ecart-type <img src="https://render.githubusercontent.com/render/math?math=\sigma"> d'une loi normale. -->
+
 
 ##### 3. A partir de cette échantillon de ratio d'abondance,  estimez la moyenne $\mu$ et l'ecart-type $\sigma$ d'une loi normale.
 ```
