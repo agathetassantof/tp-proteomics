@@ -310,8 +310,29 @@ Nous allons implementer une approche ORA (Over Representation Analysis) naive.
 
 Quelles sont leurs identifiants UNIPROT ?
 ``` 
-
-
+'P23721',
+ 'P77804',
+ 'P0A6K6',
+ 'P0A799',
+ 'P0A7G6',
+ 'P0A6F3',
+ 'P25745',
+ 'P0A6M8',
+ 'P0A6L0',
+ 'P0A8V6',
+ 'P0A9Q1',
+ 'P02358',
+ 'P0ACF8',
+ 'P62399',
+ 'P0A905',
+ 'P76506',
+ 'P13036',
+ 'P10384',
+ 'P06971',
+ 'P0A910',
+ 'P06996',
+ 'P76344',
+ 'P02931'
 
 ```
 
