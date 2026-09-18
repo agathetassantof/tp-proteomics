@@ -255,14 +255,15 @@ On voit que les densités sont très faibles avant -2,5 donc je vais mettre le s
 ##### 2. Representez par un histogramme les valeurs de `Log2 Corrected Abundance Ratio`
 Après ce nettoyage on a : 
 
-![Histogramme à inserez ici](hist_log2_après.png)
+![](hist_log2_après.png)
 
 <!-- ##### 3. A partir de cette échantillon de ratio d'abondance,  estimez la moyenne <img src="https://render.githubusercontent.com/render/math?math=\mu"> et l'ecart-type <img src="https://render.githubusercontent.com/render/math?math=\sigma"> d'une loi normale. -->
 
 
 ##### 3. A partir de cette échantillon de ratio d'abondance,  estimez la moyenne $\mu$ et l'ecart-type $\sigma$ d'une loi normale.
 ```
-
+mu_obs = 0.623
+sigma_obs = 0.431
 
 ```
 
@@ -270,21 +271,21 @@ Après ce nettoyage on a :
 
 
 ```python
-# _ est le vecteur des valeurs d'abondance
-fig, ax = plt.subplots()
-hist = ax.hist(_, bins=100) # draw histogram
-x = np.linspace(min(_), max(_), 100) # generate PDF domain points
+ig, ax = plt.subplots()
+hist = ax.hist(df_filt["Log2 Corrected Abundance Ratio"], bins=100) # draw histogram
+x = np.linspace(min(df_filt["Log2 Corrected Abundance Ratio"]), max(df_filt["Log2 Corrected Abundance Ratio"]), 100) # generate PDF domain points
 dx = hist[1][1] - hist[1][0] # Get single value bar height
-scale = len(_)*dx # scale accordingly
+scale = len(df_filt["Log2 Corrected Abundance Ratio"])*dx # scale accordingly
 ax.plot(x, norm.pdf(x, mu, sigma)*scale) # compute theoritical PDF and draw it
+plt.savefig("hist_loi_norm")
 ```
 
-![Histogramme à inserez ici](histogram_log2FC.png "Title")
+![](hist_loi_norm.png "Title")
 
 ##### 5. Quelles remarques peut-on faire à l'observation de l'histogramme et de la loi théorique?
 
 ```
-
+On voit que la loi est décalée vers la gauche par rapport aux données mais étant donné que les abondances mesurées ne sont pas issues de la même protéine donc de la même mesure, il n'y a aucune raison que cela suive une loi normale.
 
 ```
 
