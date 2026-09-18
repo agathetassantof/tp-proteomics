@@ -300,7 +300,7 @@ Sont condidérées comme surabondantes les proteines remplissant ces deux critè
 * $\text{p-value}<0.001$
 
 
-![](volcano_plot.png)
+![](Volcano_plot.png)
 
 ### Analyse Fonctionelle de pathway
 
