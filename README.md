@@ -245,7 +245,7 @@ df.loc[ df['Gene Symbol'].isin(['fadR', 'arcA'] ) ]
 
 ##### 1. Chargez le contenu du fichier `data/TCL_wt1.tsv` dans un notebook en eliminant les lignes porteuses de valeurs numériques aberrantes
 Avant nettoyage des valeurs aberrantes, on a cet histogramme.
-![](his_log2_avant.png)
+![](his_log2_avant.png "Log2")
 
 On voit que les densités sont très faibles avant -2,5 donc je vais mettre le seuil ici pour enlever les lignes qui ont une valeur inférieure.
 
