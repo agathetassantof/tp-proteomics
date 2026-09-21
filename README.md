@@ -399,6 +399,7 @@ Si k protéines surabondantes porte un terme GO, la pvalue de ce terme sera équ
 
 Completer le tableau ci-dessous avec les quantités vous semblant adéquates pour modeliser la pvalue de **chaque pathway [termes GO]**
 
+
 | Symboles | Paramètres | Quantités Biologiques |
 | --- | --- | --- |
 | k | nombre de succès observés| |
